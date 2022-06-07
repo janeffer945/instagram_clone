@@ -1,5 +1,7 @@
 from .models import Image, Profile, Follow, Comment
 from django.forms import ModelForm
+from django import forms
+
 
 
 class CreateProfileForm(ModelForm):
