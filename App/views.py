@@ -15,3 +15,18 @@ def index(request):
 
     context = {"posts":posts,'stories':story}
     return render(request,'index.html',context)
+
+
+
+# LOGIN VIEW FOR USER
+def Login(request):
+    if request.user.is_authenticated:
+        return redirect("profile")
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user:
+            login(request,user)
+            return redirect("profile")
+    return render(request,'Login.html')
