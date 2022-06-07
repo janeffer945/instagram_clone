@@ -30,3 +30,17 @@ def Login(request):
             login(request,user)
             return redirect("profile")
     return render(request,'Login.html')
+# CREATE PROFILE AND USER SIGNUP VIEW
+def create_profile(request):
+    if request.user.is_authenticated:
+        return redirect("profile")
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        image = request.FILES['image']
+        user = User.objects.create_user(username=username,password=password)
+        profile = Profile.objects.create(user=user,profile_picture=image)
+        if profile:
+            messages.success(request,'Profile Created Please Login')
+            return redirect("Login")
+    return render(request,'Signup.html')    
