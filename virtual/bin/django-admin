@@ -1,4 +1,4 @@
-#!/home/janeffer/Documents/instagram-clone/virtual/bin/python
+#!/home/janeffer/Documents/Instagram/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

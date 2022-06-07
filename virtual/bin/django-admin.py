@@ -1,4 +1,4 @@
-#!/home/janeffer/Documents/instagram-clone/virtual/bin/python
+#!/home/janeffer/Documents/Instagram/virtual/bin/python
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

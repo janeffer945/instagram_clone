@@ -1,23 +1,19 @@
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http.response import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 from .models import Profile,Post, Reels,Story
 from django.contrib.auth import authenticate,login,logout
 from django.db.models import Q
-
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
         return redirect("Login")
-        posts = Post.objects.filter(Q(profile__followers=request.user) & ~Q(likes=request.user))
+    posts = Post.objects.filter(Q(profile__followers=request.user) & ~Q(likes=request.user))
     story = Story.objects.filter(profile__followers=request.user)
 
     context = {"posts":posts,'stories':story}
     return render(request,'index.html',context)
-
-
-
 # LOGIN VIEW FOR USER
 def Login(request):
     if request.user.is_authenticated:
@@ -43,7 +39,7 @@ def create_profile(request):
         if profile:
             messages.success(request,'Profile Created Please Login')
             return redirect("Login")
-    return render(request,'Signup.html') 
+    return render(request,'Signup.html')
 
 # FOR RENDERING THE PROFILE PAGE
 def profile(request,id=None):
@@ -157,4 +153,4 @@ def upload_story(request):
         story_upload = Story.objects.create(story=story,profile=profile)
         if story_upload:
             messages.success(request,"STORY UPLOADED")
-    return render(request,'uploadStory.html',{'profileimage':profileimage})       
+    return render(request,'uploadStory.html',{'profileimage':profileimage})
