@@ -1,0 +1,9 @@
+SECRET_KEY='django-insecure-hx9zu=f3(1u@b-smvme^feheb3zx56x^=t6s7_*p_)tsgd_oyt'
+DEBUG=True
+DB_NAME='migram'
+DB_USER='root'
+DB_PASSWORD='njeri@k123'
+DB_HOST='127.0.0.1'
+MODE='dev'
+ALLOWED_HOSTS='.herokuapp.com'
+DISABLE_COLLECTSTATIC=1
