@@ -14,3 +14,10 @@ Battery full.
 Copy the website link on the github,
 git clone on the terminal
 Then paste and enter.
+## Technology Used
+Python3.8
+
+## Live Link
+
+Visit this web application on:
+
