@@ -8,7 +8,7 @@ from django.db.models import Q
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
-        return redirect("Login")
+        return redirect("Login.html")
     posts = Post.objects.filter(Q(profile__followers=request.user) & ~Q(likes=request.user))
     story = Story.objects.filter(profile__followers=request.user)
 
